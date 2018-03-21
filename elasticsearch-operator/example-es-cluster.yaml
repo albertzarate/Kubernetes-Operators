@@ -8,13 +8,17 @@ spec:
   cerebro:
     image: upmcenterprises/cerebro:0.6.8
   elastic-search-image: upmcenterprises/docker-elasticsearch-kubernetes:6.1.3_0
-  client-node-replicas: 2
-  master-node-replicas: 2
-  data-node-replicas: 2
+  client-node-replicas: 1
+  master-node-replicas: 1
+  data-node-replicas: 1
   network-host: 0.0.0.0
-  #zones:
-  #- us-east-2a
-  #- us-east-2b
+  zones:
+  - us-east-1a
+  - us-east-1b
+  - us-east-1c
+  - us-east-1d
+  - us-east-1e
+  - us-east-1f
   data-volume-size: 10Gi
   java-options: "-Xms512m -Xmx512m"
   snapshot:
