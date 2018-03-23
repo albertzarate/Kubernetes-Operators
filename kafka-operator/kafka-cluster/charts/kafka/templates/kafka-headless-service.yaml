@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.headlessService }}
+  labels:
+    component: kafka-broker
+    {{ include "standardLabels" . | indent 4 }}
+spec:
+  ports:
+  - port: 9092
+  clusterIP: None
+  selector:
+    app: {{ .Values.global.applicationName }}
+    component: kafka-broker
+    release: {{ .Release.Name | quote }}
